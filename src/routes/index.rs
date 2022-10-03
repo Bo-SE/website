@@ -9,6 +9,6 @@ struct Person {
 
 #[get("/")]
 pub fn homepage() -> Template {
-    let content = Person { name: "Borino".to_string(), surname: "Stock Exchange".to_string() };
-    Template::render("index", &content)
+    let context = Person { name: "Borino".to_string(), surname: "Stock Exchange".to_string() };
+    Template::render("index", &context)
 }

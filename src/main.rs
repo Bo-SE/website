@@ -1,4 +1,5 @@
 #[macro_use] extern crate rocket;
+extern crate rocket_dyn_templates;
 use rocket::{Build, Rocket};
 use rocket_dyn_templates::Template;
 
