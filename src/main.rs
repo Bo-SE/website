@@ -1,15 +1,16 @@
 #![feature(decl_macro)]
-use serde::Serialize;
 #[macro_use] extern crate rocket;
-use std::fmt::format;
-use rocket::{Build, Rocket};
+use rocket::Request;
+use rocket::response::content::Json;
+use rocket::request::Form;
 use rocket_contrib::templates::Template;
+use serde::Serialize;
 
-#[launch]
-fn rocket() -> Rocket<Build> {
-    rocket::build()
-        .mount("/", routes![index, hello])
+fn main() {
+    rocket::ignite()
+        .mount("/", routes![index])
         .attach(Template::fairing())
+        .launch();
 }
 
 #[derive(Serialize)]
@@ -18,13 +19,8 @@ struct Person {
     surname: String
 }
 
-#[get("/")]
+#[get("/index")]
 fn index() -> Template {
     let content = Person { name: "Lore".to_string(), surname: "Lor".to_string() };
     Template::render("index", content)
-}
-
-#[get("/hello/<name>")]
-fn hello(name: &str) -> String {
-    format!("Hello {}!", name)
 }
