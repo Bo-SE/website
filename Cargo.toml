@@ -9,7 +9,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = "0.5.0-rc.2"
+rocket = "0.4.11"
 serde = { version = "1.0", features = ["derive"] }
 
 [dependencies.rocket_contrib]
