@@ -14,7 +14,8 @@ fn rocket() -> Rocket<Build>{
             routes::index::homepage,
             routes::contacts::contact_page,
             // all the others
-        ]).mount("/static", FileServer::from("templates/static"))
+        ])
+        .mount("/static", FileServer::from("templates/static"))
         .attach(Template::fairing())
 }
 
