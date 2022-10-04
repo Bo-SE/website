@@ -21,7 +21,7 @@ pub fn contact_page() -> Template {
         },
         Contact{
             name: "Lorenzo Pattaro Zonta",
-            email: "lorenzo.bodini.private@gmail.com"
+            email: "lpzonta@gmail.com"
         },
         Contact{
             name: "Lorenzo Bodini",
