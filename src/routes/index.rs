@@ -15,8 +15,3 @@ pub fn homepage() -> Template {
     Template::render("index", &context)
 }
 
-#[get("/contactUs")]
-pub fn contact_page()-> Template{
-    let context = Person { name: "mother".to_string(), surname :"fucker".to_string()};
-    Template::render("contact", &context)
-}

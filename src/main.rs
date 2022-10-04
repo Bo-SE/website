@@ -11,7 +11,7 @@ fn rocket() -> Rocket<Build>{
     rocket::build()
         .mount("/", routes![ //list of routes
             routes::index::homepage,
-            routes::index::contact_page
+            routes::contacts::contact_page,
             // all the others
         ])
         .attach(Template::fairing())
