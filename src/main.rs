@@ -5,6 +5,7 @@ use rocket_dyn_templates::Template;
 
 mod routes; // using all routes from the "routes" directory
 
+//main functions for rocket server
 #[launch]
 fn rocket() -> Rocket<Build>{
     rocket::build()
