@@ -34,6 +34,12 @@
 <body>
 <div class="left-side">
     <h1 class="title" >Nobody cares about our contact infos!</h1>
+    <h2 class="">And so here they are!</h2>
+    {{#each contacts}}
+        <label for="">Name</label>: <b><span>{{name}}</span><br></b>
+        <label for="">Email</label>: <b><span>{{email}}</span></b>
+        <hr>
+    {{/each}}
     <p class="sub-title">Hello {{name}} {{surname}}😊</p>
 </div>
 <div class="right-side">
