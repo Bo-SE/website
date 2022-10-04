@@ -1,26 +1,17 @@
-#![feature(decl_macro)]
 #[macro_use] extern crate rocket;
-use rocket::Request;
-use rocket::response::content::Json;
-use rocket::request::Form;
-use rocket_contrib::templates::Template;
-use serde::Serialize;
+extern crate rocket_dyn_templates;
+use rocket::{Build, Rocket};
+use rocket_dyn_templates::Template;
 
-fn main() {
-    rocket::ignite()
-        .mount("/", routes![index])
+mod routes; // using all routes from the "routes" directory
+
+#[launch]
+fn rocket() -> Rocket<Build>{
+    rocket::build()
+        .mount("/", routes![ //list of routes
+            routes::index::homepage,
+            // all the others
+        ])
         .attach(Template::fairing())
-        .launch();
 }
 
-#[derive(Serialize)]
-struct Person {
-    name: String,
-    surname: String
-}
-
-#[get("/index")]
-fn index() -> Template {
-    let content = Person { name: "Lore".to_string(), surname: "Lor".to_string() };
-    Template::render("index", content)
-}
