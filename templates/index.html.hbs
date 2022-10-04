@@ -8,12 +8,30 @@
 </head>
 <body>
 
-<ul>
-    <li><a href="">Home</a></li>
+<ul class="menu">
+    <li><a class="active" href="">Home</a></li>
     <li><a href="">Bo-SE</a></li>
     <li><a href="">Chi siamo</a></li>
     <li><a href="">Contatti</a></li>
 </ul>
+<div class="background">
+    <div class="bus">
+        <!-- Da gestire poi con api e handlebars-->
+        {{#each index}}
+            <span>
+            ${{bus_stop}}
+                {{#if is_late}}
+                    <span style="color: red"><b>▼ {{bus_info}}</b></span>
+                {{/if}}
+                {{#unless is_late}}
+                    <span style="color: green"><b>▲ {{bus_info}}</b></span>
+                {{/unless}}
+        </span>
+        {{/each}}
+    </div>
+</div>
+
+
 <div class="left-side">
     <h1 class="title">This web app was built with RUST</h1>
     <p class="sub-title">Hello {{name}} {{surname}}😊</p>

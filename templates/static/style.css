@@ -28,7 +28,81 @@ body {
 }
 
 ul {
+    position: fixed;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    top: 0%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color:#1a6875;
+}
+
+.menu{
+    z-index: 100;
+}
+
+.background{
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+    left: 0;
+    top: 5.35%;
+    background-color: #333;
+    z-index: 1;
+    height: auto;
+    height: 2.5vh;
+}
+
+.bus{
+    height: inherit;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+    left: 0;
+    top: 5.35%;
+    white-space: nowrap;
+    color: white;
+    animation: floatText 60s infinite linear;
+    background-color: #333;
+    padding-left: 100%;
+
+}
+
+
+
+@keyframes floatText {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.buscontent:hover  {
+    animation-play-state: paused;
 }
