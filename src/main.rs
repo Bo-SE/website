@@ -2,6 +2,7 @@
 extern crate rocket_dyn_templates;
 use rocket::{Build, Rocket};
 use rocket_dyn_templates::Template;
+use rocket_contrib::serve::StaticFiles;
 
 mod routes; // using all routes from the "routes" directory
 
