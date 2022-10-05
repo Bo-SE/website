@@ -29,7 +29,7 @@ pub fn contact_page() -> Template {
         },
         Contact{
             name: "Lorenzo Marogna",
-            email: "boh@tuononno.it"
+            email: "lmarogna02@gmail.com"
         }
     );
 
