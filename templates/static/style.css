@@ -24,6 +24,11 @@ body {
     top: 10%;
     right: 5%;
 }
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
 
 ul {
     position: fixed;
@@ -93,7 +98,11 @@ li a:hover {
 
 }
 
-
+#map {
+    padding: 0;
+    overflow: hidden;
+    margin: auto;
+}
 
 @keyframes floatText {
     to {
