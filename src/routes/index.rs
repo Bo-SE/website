@@ -1,5 +1,6 @@
 use rocket::serde::Serialize;
 use rocket_dyn_templates::{context, Template};
+use crate::routes::trentino_api::Busses;
 
 //derive of the serialize trait
 #[derive(Serialize)]
@@ -19,6 +20,9 @@ struct Bus {
 //request of templates/index.html.hbs
 #[get("/")]
 pub fn homepage() -> Template {
+    // this will contain all the busses, then render the vector contained in the struct
+    let busses: Busses =  crate::routes::trentino_api::parse_json("").unwrap();
+
     let context = Person { name: "Borino".to_string(), surname: "Stock Exchange".to_string() };
     let info_banner = (
             Bus{
