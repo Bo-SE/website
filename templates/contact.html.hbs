@@ -1,36 +1,9 @@
 <head>
-    <style type="text/css">
-        body {
-            background: #1a6875;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .left-side {
-            max-width: 45%;
-            text-align: right;
-            position: absolute;
-            top: 15%;
-            left: 0;
-        }
-        .title {
-            color: #fff;
-            font-size: 5em;
-        }
-        .sub-title {
-            color: #fff;
-            font-size: 1.3em;
-        }
-        .right-side {
-            width: 30em;
-            height: 30em;
-            background: #d0e64c;
-            border-radius: 50%;
-            position: absolute;
-            top: 10%;
-            right: 5%;
-        }
+    <style>
     </style>
+    <link rel="icon" href="static/img/bose_logo.png">
     <link href="static/style.css" rel="stylesheet">
-    <title></title>
+    <title>Borino Stock Exchange</title>
 </head>
 <body>
 
@@ -47,6 +20,9 @@
 </div>
 
 <div class="left-side">
+    <img src="/static/img/bose_logo.png" alt="scemo chi legge" width="400em" height="400em">
+</div>
+<div class="right-side">
     <h1 class="title" >Nobody cares about our contact infos!</h1>
     <h2 class="">And so here they are!</h2>
     {{#each contacts}}
@@ -56,8 +32,5 @@
     {{/each}}
     <p class="sub-title">Hello {{name}} {{surname}}😊</p>
 </div>
-<div class="right-side">
-    <div class="round-image">
-    </div>
-</div>
+</body>
 </body>

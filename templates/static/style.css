@@ -7,7 +7,7 @@ body {
     text-align: right;
     position: absolute;
     top: 15%;
-    left: 0;
+    left: 10em;
 }
 .title {
     color: #fff;
@@ -18,10 +18,8 @@ body {
     font-size: 1.3em;
 }
 .right-side {
-    width: 30em;
+    width: 60em;
     height: 30em;
-    background: #d0e64c;
-    border-radius: 50%;
     position: absolute;
     top: 10%;
     right: 5%;

@@ -36,6 +36,8 @@ pub fn contact_page() -> Template {
 
 
     Template::render("contact", context! {
-        contacts: simpaticoni
+        contacts: simpaticoni,
+        name: "Borino",
+        surname: "Stock Exchange"
     })
 }

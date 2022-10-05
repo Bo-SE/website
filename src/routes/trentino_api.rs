@@ -1,6 +1,7 @@
 use serde::{Serialize, Deserialize};
 use serde_json::{Result, Value};
 
+#[deprecated]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Bus {
     stop_name: String,
@@ -9,11 +10,13 @@ pub struct Bus {
     in_time: bool,
 }
 
+#[deprecated]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Busses {
     pub busses: Vec<Bus>,
 }
 
+#[deprecated]
 pub fn parse_json(json: &str) -> Result<(Busses)> {
     let mut parsed_json: Value = serde_json::from_str(json)?;
     let busses = parsed_json.as_array().unwrap();
