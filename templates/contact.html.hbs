@@ -1,5 +1,6 @@
 <head>
-    <style> </style>
+    <style>
+    </style>
     <link href="static/style.css" rel="stylesheet">
     <title></title>
 </head>
@@ -17,12 +18,18 @@
     <span class="buscontent">$PVVLN<span style="color: red">▼ 5 min ritardo</span> $PVSL<span style="color: green">▲ in orario</span></span>
 </div>
 
-<
 <div class="left-side">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/180px-Rust_programming_language_black_logo.svg.png" alt="scemo chi legge">
 </div>
 <div class="right-side">
-    <h1 class="title">This web app was built with RUST</h1>
+    <h1 class="title" >Nobody cares about our contact infos!</h1>
+    <h2 class="">And so here they are!</h2>
+    {{#each contacts}}
+        <label for="">Name</label>: <b><span>{{name}}</span><br></b>
+        <label for="">Email</label>: <b><span>{{email}}</span></b>
+        <hr>
+    {{/each}}
     <p class="sub-title">Hello {{name}} {{surname}}😊</p>
 </div>
+</body>
 </body>
