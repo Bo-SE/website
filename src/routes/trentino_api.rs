@@ -5,13 +5,13 @@ use serde_json::{Result, Value};
 pub struct Bus {
     stop_name: String,
     stop_time: String,
-    time_delta: i32,
+    time_delta: i64,
     in_time: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Busses {
-    busses: Vec<Bus>,
+    pub busses: Vec<Bus>,
 }
 
 pub fn parse_json(json: &str) -> Result<(Busses)> {
@@ -23,7 +23,7 @@ pub fn parse_json(json: &str) -> Result<(Busses)> {
         let b = Bus {
             stop_name: bus["stop_name"].to_string(),
             stop_time: bus["stop_time"].to_string(),
-            time_delta: 0, // to Calculate
+            time_delta: bus["time_delta"].as_i64().unwrap(), // to Calculate
             in_time: bus["in_time"].as_bool().unwrap(),
         };
 

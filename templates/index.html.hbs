@@ -20,7 +20,7 @@
         {{#each busses}}
             <span>
             ${{stop_name}}
-                {{#if in_time}}
+                {{#if not in_time}}
                     <span style="color: red"><b>▼ {{time_delta}} min late at {{stop_time}}</b></span>
                 {{/if}}
                 {{#unless in_time}}
