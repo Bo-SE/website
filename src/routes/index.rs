@@ -2,21 +2,6 @@ use rocket::serde::Serialize;
 use rocket_dyn_templates::{context, Template};
 use crate::routes::trentino_api::Busses;
 
-//derive of the serialize trait
-#[derive(Serialize)]
-struct Person {
-    name: String,
-    surname: String
-}
-
-#[derive(Serialize)]
-struct Bus {
-    bus_stop: &'static str,
-    bus_info: &'static str,
-    is_late: bool
-    // Other stuff
-}
-
 //request of templates/index.html.hbs
 #[get("/")]
 pub fn homepage() -> Template {
@@ -55,6 +40,8 @@ pub fn homepage() -> Template {
     "#;
     // this will contain all the busses, then render the vector contained in the struct
     let busses_struct: Busses =  crate::routes::trentino_api::parse_json(json).unwrap();
+
+    println!("{:?}", busses_struct);
 
     Template::render("index", context! {
         index: busses_struct.busses
