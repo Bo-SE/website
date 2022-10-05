@@ -8,28 +8,23 @@
 </head>
 <body>
 
-<ul class="menu">
-    <li><a class="active" href="">Home</a></li>
-    <li><a href="">Bo-SE</a></li>
-    <li><a href="">Chi siamo</a></li>
-    <li><a href="/contacts">Contatti</a></li>
-</ul>
-<div class="background">
-    <div class="bus">
-        <!-- Da gestire poi con api e handlebars-->
-        {{#each index}}
-            <span>
-            ${{stop_name}}
-                {{#if in_time}}
-                        <span style="color: green"><b>▲ on time at {{stop_time}}</b></span>
-                {{/if}}
-                {{#unless in_time}}
-                    <span style="color: red"><b>▼ {{time_delta}} min late at {{stop_time}}</b></span>
-                {{/unless}}
-        </span>
-        {{/each}}
+<div class="header">
+    <a href="#default" style="height: 15vh; border:0;padding: 0;padding-right:1vw" class="logo"><img  style="height: inherit; top:0" src="static/bose_logo.png"></a>
+    <div class="header-right">
+        <a class="active" href="#home">Home</a>
+        <a href="#Bo-SE">Bo-SE</a>
+        <a href="#about">Chi siamo</a>
+        <a href="#contacts">Contatti</a>
     </div>
+
 </div>
+
+<div class="header">
+
+    </div>
+
+
+
 
 
 <div class="left-side">
@@ -37,8 +32,7 @@
     <p class="sub-title">Hello {{name}} {{surname}}😊</p>
 </div>
 <div class="right-side">
-        <div class="round-image">
-        <p class="sub-title">Try add "contactUs"!</p>
+
     </div>
 </div>
 </body>

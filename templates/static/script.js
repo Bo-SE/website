@@ -1,0 +1,1 @@
+const httpRequest = new XMLHttpRequest();
