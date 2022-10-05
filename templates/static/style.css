@@ -76,21 +76,16 @@ li a:hover {
 }
 
 .bus{
-    height: inherit;
-    position: fixed;
     margin: 0;
     padding: 0;
     width: 100%;
     overflow: hidden;
-    display: inline-block;
-    left: 0;
-    top: inherit;
     white-space: nowrap;
     color: white;
     animation: floatText 60s infinite linear;
     background-color: #333;
     padding-left: 100%;
-
+    padding-top: 5vh;
 }
 
 
@@ -145,7 +140,7 @@ li a:hover {
 }
 
 /* Float the link section to the right */
-.header-right {
+.header-entry {
     float: left;
 }
 
@@ -159,4 +154,10 @@ li a:hover {
     .header-right {
         float: none;
     }
+}
+
+.main-text{
+    color: white;
+    font-size: 2em;
+    text-align: center;
 }
