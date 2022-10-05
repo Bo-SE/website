@@ -17,14 +17,14 @@
 <div class="background">
     <div class="bus">
         <!-- Da gestire poi con api e handlebars-->
-        {{#each index}}
+        {{#each busses}}
             <span>
-            ${{bus_stop}}
-                {{#if is_late}}
-                    <span style="color: red"><b>▼ {{bus_info}}</b></span>
+            ${{stop_name}}
+                {{#if in_time}}
+                    <span style="color: red"><b>▼ {{time_delta}} min late at {{stop_time}}</b></span>
                 {{/if}}
-                {{#unless is_late}}
-                    <span style="color: green"><b>▲ {{bus_info}}</b></span>
+                {{#unless in_time}}
+                        <span style="color: green"><b>▲ on time at {{stop_time}}</b></span>
                 {{/unless}}
         </span>
         {{/each}}
