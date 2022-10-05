@@ -7,12 +7,16 @@
 </head>
 <body>
 
-<ul class="menu">
-    <li><a href="/">Home</a></li>
-    <li><a href="">Bo-SE</a></li>
-    <li><a href="">Chi siamo</a></li>
-    <li><a class = "active" href="">Contatti</a></li>
-</ul>
+<div class="header">
+    <a href="#default" style="height: 15vh; border:0;padding: 0;padding-right:1vw" class="logo"><img  style="height: inherit; top:0" src="static/bose_logo.png"></a>
+    <div class="header-right">
+        <a class="active" href="/">Home</a>
+        <a href="#Bo-SE">Bo-SE</a>
+        <a href="#about">Chi siamo</a>
+        <a href="/contacts">Contatti</a>
+        <a href="/find_us">Find Us</a>
+    </div>
+</div>
 
 <div class="bus">
     <!-- Da gestire poi con api e handlebars-->
@@ -20,7 +24,7 @@
 </div>
 
 <div class="left-side">
-    <img src="/static/img/bose_logo.png" alt="scemo chi legge" width="400em" height="400em">
+    <img src="/static/bose_logo.png" alt="scemo chi legge" width="400em" height="400em">
 </div>
 <div class="right-side">
     <h1 class="title" >Nobody cares about our contact infos!</h1>
