@@ -44,7 +44,9 @@ pub fn homepage() -> Template {
     println!("{:?}", busses_struct);
 
     Template::render("index", context! {
-        index: busses_struct.busses
+        index: busses_struct.busses,
+        name: "Borino",
+        surname: "Stock Exchange"
     })
 }
 
