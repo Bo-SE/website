@@ -5,6 +5,7 @@ use rocket::fs::FileServer;
 use rocket_dyn_templates::Template;
 
 mod routes; // using all routes from the "routes" directory
+mod blocks;
 
 //main functions for rocket server
 #[launch]
