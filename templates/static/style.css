@@ -97,6 +97,7 @@ li a:hover {
     padding: 0;
     overflow: hidden;
     margin: auto;
+    left: 50%;
 }
 
 @keyframes floatText {
