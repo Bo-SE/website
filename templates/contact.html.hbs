@@ -32,22 +32,22 @@
     </div>
 </div>
 
-<div class="bus">
-    <!-- Da gestire poi con api e handlebars-->
-    <span class="buscontent">$PVVLN<span style="color: red">▼ 5 min ritardo</span> $PVSL<span style="color: green">▲ in orario</span></span>
-</div>
-
-<div class="left-side">
-    <img src="/static/bose_logo.png" alt="scemo chi legge" width="40em" height="400em">
-</div>
-<div class="right-side">
-    <h1 class="title" >Nobody cares about our contact infos!</h1>
-    <h2 class="">And so here they are!</h2>
-    {{#each contacts}}
-        <label for="">Name</label>: <b><span>{{name}}</span><br></b>
-        <label for="">Email</label>: <b><span>{{email}}</span></b>
-        <hr>
-    {{/each}}
-    <p class="sub-title">Hello {{name}} {{surname}}😊</p>
+<div class="center" style="">
+    <h1 class="title" style="font-size: 3em">Contact us directly!</h1>
+    <div class="personal contacts">
+        {{#each contacts}}
+            <label class = "sub-title" for="">Name</label>: <b><span class = "sub-title">{{name}}</span><br></b>
+            <label class = "sub-title" for="">Email</label>: <b><span class = "sub-title">{{email}}</span></b>
+            <hr>
+        {{/each}}
+        <br>
+    </div>
+    <div class="send_message">
+        <h1 class="title" style="font-size: 3em"> Or leave us a message {{description}}</h1>
+        <form id="myForm" method="post">
+            <input name="description" type="text" />
+            <input type="submit" value="submit" />
+        </form>
+    </div>
 </div>
 </body>

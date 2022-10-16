@@ -13,6 +13,7 @@ fn rocket() -> Rocket<Build>{
         .mount("/", routes![ //list of routes
             routes::index::homepage,
             routes::contacts::contact_page,
+            routes::contacts::funzione,
             routes::find_us::find_us,
             // all the others
         ])
