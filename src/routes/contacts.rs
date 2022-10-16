@@ -34,25 +34,10 @@ pub fn contact_page() -> Template {
             email: "lmarogna02@gmail.com"
         }
     );
+
     Template::render("contact", context! {
         contacts: simpaticoni,
         name: "Borino",
         surname: "Stock Exchange"
     })
-}
-
-
-#[derive(Debug, FromForm, Serialize)]
-struct Task<'r> {
-    description: &'r str,
-    completed: bool
-}
-
-#[post("/contacts", data = "<task>")]
-fn funzione(task: Form<Task<'_>>) -> Template {
-    if task.description.is_empty() {
-        Template::render("contact", &*task)
-    } else {
-        Template::render("home", &*task)
-    }
 }
