@@ -8,13 +8,13 @@ mod routes; // using all routes from the "routes" directory
 
 //main functions for rocket server
 #[launch]
-fn rocket() -> Rocket<Build>{
+fn rocket() -> Rocket<Build> {
     rocket::build()
         .mount("/", routes![ //list of routes
             routes::index::homepage,
             routes::contacts::contact_page,
             routes::find_us::find_us,
-            // all the others
+            routes::contacts::contacts// all the othe rs
         ])
         .mount("/static", FileServer::from("templates/static"))
         .attach(Template::fairing())
