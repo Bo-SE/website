@@ -1,6 +1,7 @@
 use rocket::serde::Serialize;
-use rocket_dyn_templates::{context, Template};
-use crate::routes::trentino_api;
+use rocket_dyn_templates::context;
+use rocket_include_tera::{TeraContextManager, EtagIfNoneMatch, TeraResponse};
+use rocket::State;
 use rocket::form::Form;
 use rocket::form::FromForm;
 
@@ -12,11 +13,7 @@ struct Contact {
 }
 
 #[get("/contacts")]
-pub fn contact_page() -> Template {
-
-    // Forse c'è un modo migliore per passare più contatti
-    // Maybe con la struttura Contact e un'altra struttura di supporto contenente i 4 contatti
-
+pub fn contact_page(tera_cm: &State<TeraContextManager>, etag_if_none_match: EtagIfNoneMatch) -> TeraResponse {
     let simpaticoni = (
         Contact{
             name: "Filippo De Grandi",
@@ -36,10 +33,9 @@ pub fn contact_page() -> Template {
         }
     );
 
-    Template::render("contact", context! {
+    tera_response!(tera_cm, etag_if_none_match, "contacts", context!{
         contacts: simpaticoni,
-        name: "Borino",
-        surname: "Stock Exchange"
+        title: "Contacts"
     })
 }
 
@@ -49,7 +45,7 @@ pub struct Task<'r> {
 }
 
 #[post("/contacts", data = "<task>")]
-pub fn contacts(task: Form<Task<'_>>)->Template{
+pub fn contacts_post(task: Form<Task<'_>>, tera_cm: &State<TeraContextManager>, etag_if_none_match: EtagIfNoneMatch) -> TeraResponse {
     let simpaticoni = (
         Contact{
             name: "Filippo De Grandi",
@@ -68,9 +64,12 @@ pub fn contacts(task: Form<Task<'_>>)->Template{
             email: "lmarogna02@gmail.com"
         }
     );
-    Template::render("contact", context! {
+
+
+    tera_response!(tera_cm, etag_if_none_match, "contacts", context! {
         contacts: simpaticoni,
         name: "Borino",
+        title: "Contacts",
         surname: "Stock Exchange",
         task: &*task
     })

@@ -1,0 +1,20 @@
+{% extends "graphics" %}
+
+{% block content %}
+<h1 class="title" style="font-size: 3em">Contact us directly!</h1>
+<div class="personal contacts">
+    {% for c in contacts %}
+        <label class = "sub-title" for="">Name</label>: <b><span class = "sub-title">{{c.name}}</span><br></b>
+        <label class = "sub-title" for="">Email</label>: <b><span class = "sub-title">{{c.email}}</span></b>
+        <hr>
+    {% endfor %}
+    <br>
+</div>
+<div class="send_message">
+    <h1 class="title" style="font-size: 3em"> Or leave us a message {% if task %}{{ task.description }}{% endif %}</h1>
+    <form id="myForm" method="post">
+        <input name="description" type="text" />
+        <input type="submit" value="submit" />
+    </form>
+</div>
+{% endblock %}

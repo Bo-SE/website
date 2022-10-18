@@ -1,0 +1,15 @@
+{% extends "base" %}
+
+
+{% block head %}
+<link href="static/style.css" rel="stylesheet">
+<title>{% if title %}{{ title }}{% endif %}</title>
+{% endblock %}
+
+{% block body %}
+{% include "header" %}
+
+    {% block content %}
+    {% endblock %}
+
+{% endblock %}
