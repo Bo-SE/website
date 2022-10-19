@@ -1,24 +1,92 @@
 <div class="header">
     <a href="#default" style="height: 15vh; border:0;padding: 0;padding-right:1vw" class="logo"><img  style="height: inherit; top:0" src="static/bose_logo.png"></a>
     <div class="header-right">
-        <a class="active" href="/">Home</a>
-        <a href="#Bo-SE">Bo-SE</a>
-        <a href="#about">Chi siamo</a>
-        <a href="/contacts">Contatti</a>
-        <a href="/find_us">Find Us</a>
+        {% if section %}{% set __section__ = section %}{% else %}{% set __section__ = "home" %}{% endif %}
+        <a class="home" href="/">Home</a>
+        <a class="bose" href="#Bo-SE" onclick="setActive(this)">Bo-SE</a>
+        <a class="who" href="#about" onclick="setActive(this)">Chi siamo</a>
+        <a class="contacts" href="/contacts">Contatti</a>
+        <a class="find_us" href="/find_us">Find Us</a>
     </div>
     <div class="bus">
         <!-- Da gestire poi con api e handlebars-->
-        <span>
-            <span style="color: green"><b>▲ on time at 100000000000 </b></span>
-            <span style="color: red"><b>▼ 20 min late at 10</b></span>
+        <span class="bus-content">
+            <span>Loading busses...</span>
         </span>
     </div>
-    <script>
-        // function load_busses(){
-        //     jQuery.ajax(
-        //
-        //     )
-        // }
+    <script type="application/javascript">
+        const BUS_NA = -1, BUS_ON_TIME = 0, BUS_DELAY = 1, BUS_EARLY = 2
+
+        const menu_container = document.getElementsByClassName("header-right")[0];
+
+        function setActive(element){
+            Array.from(menu_container.getElementsByTagName("a")).forEach((e) => {
+                e.classList.remove("active")
+            })
+            element.classList.add("active")
+        }
+
+        setActive(menu_container.getElementsByClassName("{{ __section__ }}")[0]);
+
+        const bus_container = document.getElementsByClassName("bus-content")[0]
+        function compileBusses(data){
+            if(data === "error"){
+                bus_container.innerHTML = "<span style='color: red;'>Error while fetching busses.</span>"
+            }
+            else {
+                bus_container.innerHTML = ""
+                data.forEach(d => {
+                    bus_container.innerHTML += "$" + d.name + " -"
+                    let _ = document.createElement("span")
+                    let el = document.createElement("b")
+                    _.appendChild(el)
+                    bus_container.appendChild(_)
+
+                    el.style.color = [BUS_NA, BUS_DELAY].includes(d.status) ? "red" : "green"
+
+                    if(d.status !== BUS_NA) {
+                        let sched = new Date(d.time * 1000)
+                        let actual = new Date(d.time * 1000 + (d.delay * 60 * 1000))
+
+                        if (d.status === BUS_ON_TIME)
+                            el.innerHTML = "▲ on time "
+                        else if (d.status === BUS_EARLY)
+                            el.innerHTML = "▲ " + (-d.delay) + " min early "
+                        else if (d.status === BUS_DELAY)
+                            el.innerHTML = "▼ " + d.delay + " min late "
+                        el.innerHTML += "at " + actual.getHours() + ":" + String(actual.getMinutes()).padStart(2, '0')
+                    }
+                    else {
+                        el.innerHTML = "N/A"
+                    }
+                })
+            }
+        }
+
+        function getBusses(){
+            jQuery.ajax({
+                type: "GET",
+                url: "/static/busses.json",
+                contentType:'application/json',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                },
+                xhr: function () {
+                    return new window.XMLHttpRequest()
+                },
+                success: function (response) {
+                    compileBusses(response)
+                },
+                error: function (error) {
+                    console.error("unable to fetch bus data, compiling as unknown")
+                    compileBusses("error")
+                    console.error(error)
+                },
+                cache: false,
+                processData: false,
+            })
+        }
+
+        getBusses()
     </script>
 </div>

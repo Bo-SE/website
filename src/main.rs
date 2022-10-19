@@ -33,6 +33,7 @@ fn rocket() -> Rocket<Build> {
             routes::contacts::contact_page,
             routes::contacts::contacts_post,
             routes::find_us::find_us,
+            routes::redirects::favicon,
         ])
 }
 

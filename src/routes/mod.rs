@@ -2,3 +2,4 @@
 pub mod index;
 pub mod contacts;
 pub mod find_us;
+pub mod redirects;

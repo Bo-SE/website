@@ -33,9 +33,10 @@ pub fn contact_page(tera_cm: &State<TeraContextManager>, etag_if_none_match: Eta
         }
     );
 
-    tera_response!(tera_cm, etag_if_none_match, "contacts", context!{
+    tera_response!(disable_minify tera_cm, etag_if_none_match, "contacts", context!{
         contacts: simpaticoni,
-        title: "Contacts"
+        title: "Contacts",
+        section: "contacts"
     })
 }
 
@@ -66,10 +67,11 @@ pub fn contacts_post(task: Form<Task<'_>>, tera_cm: &State<TeraContextManager>, 
     );
 
 
-    tera_response!(tera_cm, etag_if_none_match, "contacts", context! {
+    tera_response!(disable_minify tera_cm, etag_if_none_match, "contacts", context! {
         contacts: simpaticoni,
         name: "Borino",
         title: "Contacts",
+        section: "contacts",
         surname: "Stock Exchange",
         task: &*task
     })
