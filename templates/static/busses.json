@@ -1,1 +1,38 @@
-../../../../../python/busBanner/busses.json
+[
+    {
+        "name": "BRN",
+        "time": 1666181460.0,
+        "delay": 5.0,
+        "status": 1
+    },
+    {
+        "name": "PVVLN",
+        "time": 1666181580.0,
+        "delay": 1.0,
+        "status": 1
+    },
+    {
+        "name": "PZZDNTFS",
+        "time": 1666181460.0,
+        "delay": 0,
+        "status": 0
+    },
+    {
+        "name": "VNZPRTQL",
+        "time": 1666181760.0,
+        "delay": -1.0,
+        "status": 2
+    },
+    {
+        "name": "PVSL",
+        "time": 1666187520.0,
+        "delay": 0,
+        "status": 0
+    },
+    {
+        "name": "PVPLSCNTFC",
+        "time": "N/A",
+        "delay": 0,
+        "status": -1
+    }
+]
